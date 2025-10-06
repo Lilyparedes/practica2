@@ -1,0 +1,51 @@
+<div class="track-page-container">
+  <div class="container mt-5">
+    <div class="card shadow-lg border-0 rounded-4">
+
+      <div class="card-header track-header text-white text-center">
+        <h2 class="mb-0">
+          <i class="bi bi-truck me-2"></i> Seguimiento de Orden
+        </h2>
+      </div>
+
+      <div class="card-body p-4">
+        <!-- Buscar Código -->
+        <div class="mb-4">
+          <label class="form-label fw-bold">
+            <i class="bi bi-upc-scan me-1"></i> Código
+          </label>
+          <div class="input-group">
+            <input type="text" class="form-control" [(ngModel)]="trackingId" name="trackingId"
+              placeholder="Ingresa el ID de rastreo" />
+            <button class="btn btn-success fw-bold" type="button" (click)="searchOrder()">
+              <i class="bi bi-search me-1"></i> Buscar
+            </button>
+          </div>
+        </div>
+
+        <!-- Historial -->
+        <div id="orderHistory" class="mt-4">
+          <h3 class="mb-3">
+            <i class="bi bi-clock-history me-1"></i> Historial de actualizaciones
+          </h3>
+          <div class="table-responsive">
+            <table class="table table-hover table-bordered align-middle track-table">
+              <thead class="table-dark">
+                <tr>
+                  <th>Fecha</th>
+                  <th>Estado</th>
+                  <th>Comentario</th>
+                  <th>Responsable</th>
+                </tr>
+              </thead>
+              <tbody id="updatesTableBody">
+                <!-- Aquí se llenará con filas dinámicamente -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>

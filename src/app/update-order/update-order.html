@@ -1,0 +1,58 @@
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-lg-7 col-md-9">
+      <div class="card custom-card shadow-lg rounded-4 border-0">
+
+        <div class="card-header custom-header text-white text-center">
+          <h2 class="mb-0">
+            <i class="bi bi-pencil-square me-2"></i> Actualizar Orden
+          </h2>
+        </div>
+
+        <div class="card-body p-4">
+          <!-- Buscar Orden -->
+          <div class="mb-4">
+            <label class="form-label fw-bold">
+              <i class="bi bi-upc-scan me-1"></i> Número de Paquete
+            </label>
+            <div class="input-group">
+              <input type="number" class="form-control" [(ngModel)]="packageNumber" placeholder="Ej: 123456"/>
+              <button class="btn btn-success fw-bold" (click)="searchOrder()">
+                <i class="bi bi-search me-1"></i> Buscar
+              </button>
+            </div>
+          </div>
+
+          <!-- Detalles de la Orden -->
+          <div class="mt-4">
+            <div class="alert custom-alert shadow-sm">
+              <p><i class="bi bi-person-circle me-1"></i><strong>Nombre:</strong> {{ foundOrder?.senderName || '' }}</p>
+              <p><i class="bi bi-geo-alt me-1"></i><strong>Dirección:</strong> {{ foundOrder?.deliveryAddress || '' }}</p>
+            </div>
+
+            <label class="form-label fw-bold"><i class="bi bi-arrow-repeat me-1"></i> Nuevo Estado</label>
+            <select class="form-select" [(ngModel)]="newStatus" [disabled]="isFinalized">
+              <option value="Creado">Creado</option>
+              <option value="En preparación">En preparación</option>
+              <option value="En tránsito">En tránsito</option>
+              <option value="Entregado">Entregado</option>
+              <option value="No entregado">No entregado</option>
+            </select>
+
+            <label class="form-label fw-bold mt-3"><i class="bi bi-person-badge me-1"></i> Responsable</label>
+            <input type="text" class="form-control" [(ngModel)]="updatedBy" placeholder="Responsable" [disabled]="isFinalized"/>
+
+            <label class="form-label fw-bold mt-3"><i class="bi bi-chat-left-text me-1"></i> Comentario</label>
+            <textarea class="form-control" rows="3" [(ngModel)]="comment" placeholder="Comentario" [disabled]="isFinalized"></textarea>
+
+            <div class="d-grid mt-3">
+              <button class="btn btn-primary btn-lg fw-bold" (click)="updateOrder()" [disabled]="isFinalized">
+                <i class="bi bi-check-circle me-2"></i> Actualizar Orden
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

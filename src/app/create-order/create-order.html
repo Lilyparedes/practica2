@@ -1,0 +1,43 @@
+<form>
+  <!-- Nombre -->
+  <div class="mb-3">
+    <label class="form-label fw-bold">Nombre completo</label>
+    <div class="input-group">
+      <span class="input-group-text bg-primary text-white"><i class="bi bi-person-fill"></i></span>
+      <input type="text" class="form-control" [(ngModel)]="senderName" name="senderName" placeholder="Nombre completo"/>
+    </div>
+  </div>
+
+  <!-- Dirección -->
+  <div class="mb-3">
+    <label class="form-label fw-bold">Dirección de entrega</label>
+    <div class="input-group">
+      <span class="input-group-text bg-success text-white"><i class="bi bi-geo-alt-fill"></i></span>
+      <input type="text" class="form-control" [(ngModel)]="deliveryAddress" name="deliveryAddress" placeholder="Dirección"/>
+    </div>
+  </div>
+
+  <!-- Correo -->
+  <div class="mb-3">
+    <label class="form-label fw-bold">Correo electrónico</label>
+    <div class="input-group">
+      <span class="input-group-text bg-warning text-dark"><i class="bi bi-envelope-fill"></i></span>
+      <input type="email" class="form-control" [(ngModel)]="email" name="email" placeholder="ejemplo@correo.com"/>
+    </div>
+  </div>
+
+  <!-- Descripción -->
+  <div class="mb-3">
+    <label class="form-label fw-bold">Descripción de la entrega</label>
+    <div class="input-group">
+      <span class="input-group-text bg-info text-white"><i class="bi bi-card-text"></i></span>
+      <textarea class="form-control" [(ngModel)]="description" name="description" rows="4" placeholder="Detalles de la orden..."></textarea>
+    </div>
+  </div>
+
+  <div class="d-grid mt-3">
+    <button type="button" class="btn btn-create fw-bold" (click)="createOrder()">
+      <i class="bi bi-check-circle-fill me-2"></i> Crear Orden
+    </button>
+  </div>
+</form>
